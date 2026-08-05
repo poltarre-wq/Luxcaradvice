@@ -329,7 +329,7 @@
                 }
             } 
             // Premium logic
-            else if (answers.budget === "€45,000 - €80,000" || answers.segment === "Premium (Tech & Comfort)") {
+            else if (answers.budget === "€45,000 - €60,000" || answers.segment === "Premium (Tech & Comfort)") {
                 if (answers.engine === "100% Electric (EV)") {
                     matchedCars = "Tesla Model Y, BMW iX3, or Volvo EX60";
                 } else {
@@ -337,11 +337,11 @@
                 }
             } 
             // Luxury logic
-            else if (answers.budget === "€80,000+" || answers.segment === "High-End Luxury / Performance") {
+            else if (answers.budget === "€60,000+" || answers.segment === "High-End Luxury / Performance") {
                 if (answers.engine === "100% Electric (EV)") {
                     matchedCars = "Porsche Taycan, Audi e-tron GT, or Tesla Model S";
                 } else {
-                    matchedCars = "Porsche Panamera / 911, Mercedes-Benz S-Class, or BMW X5 M";
+                    matchedCars = "Porsche Panamera / 911, Mercedes-Benz S-Class, or BMW X5";
                 }
             }
 
@@ -355,7 +355,7 @@
 
         function submitForm(event) {
             event.preventDefault();
-            alert("Thank you! Pol Tarré will prepare your custom vehicle analysis and TCO comparison.");
+            alert("Thank you! Paul Tarré will prepare your custom vehicle analysis and TCO comparison.");
         }
     </script>
 
