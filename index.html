@@ -181,16 +181,21 @@
   gap: 12px;
   margin-top: 15px;
 }
-     .btn-option, .btn-nav {
+.btn-option, .btn-nav {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(31, 43, 51, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .btn-option:hover {
   transform: translateY(-2px);
   border-color: var(--accent-gold);
-  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.15);
+  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.3);
 }
-     
+
 </style>
 </head>
 <body>
