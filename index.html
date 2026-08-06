@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -101,6 +101,34 @@
       justify-content: flex-end;
       margin-top: 20px;
     }
+    .step-content {
+      display: none;
+    }
+    .step-content.active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px;
+      background: #0b0c10;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      color: var(--text-light);
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .form-control:focus {
+      border-color: var(--accent-gold);
+    }
     .brand-select {
       width: 100%;
       padding: 14px;
@@ -155,20 +183,85 @@
          style="width: 100%; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover; height: 220px;">
   </div>
 
-  <!-- Interactive Quiz Container (Unified Single-Step Selection) -->
+  <!-- Interactive Multi-Step Advisory Wizard -->
   <div class="container">
-    <div id="step-1">
+    
+    <!-- Step 1: Price / Budget Selection -->
+    <div id="step-1" class="step-content active">
       <h2>1. What is your target budget?</h2>
       <div class="options-grid">
-        <button class="btn-option" onclick="selectOption(this, '25,000€ - 45,000€')">25,000€ - 45,000€</button>
-        <button class="btn-option" onclick="selectOption(this, '45,000€ - 60,000€')">45,000€ - 60,000€</button>
-        <button class="btn-option" onclick="selectOption(this, '60,000€ - 80,000€')">60,000€ - 80,000€</button>
-        <button class="btn-option" onclick="selectOption(this, '80,000€+')">80,000€+</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '25,000€ - 45,000€', 'next-1')">25,000€ - 45,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '45,000€ - 60,000€', 'next-1')">45,000€ - 60,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '60,000€ - 80,000€', 'next-1')">60,000€ - 80,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '80,000€+', 'next-1')">80,000€+</button>
       </div>
       <div class="navigation">
-        <button class="btn-nav" id="next-1" disabled onclick="alert('Budget selected successfully!')">Next Step</button>
+        <button class="btn-nav" id="next-1" disabled onclick="nextStep(2)">Next Step</button>
       </div>
     </div>
+
+    <!-- Step 2: Powertrain Type Selection -->
+    <div id="step-2" class="step-content">
+      <h2>2. What is your preferred powertrain?</h2>
+      <div class="options-grid">
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Full Electric (BEV)', 'next-2')">Full Electric (BEV)</button>
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Plug-in Hybrid (PHEV)', 'next-2')">Plug-in Hybrid (PHEV)</button>
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Full / Mild Hybrid', 'next-2')">Full / Mild Hybrid</button>
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Petrol / Diesel', 'next-2')">Petrol / Diesel</button>
+      </div>
+      <div class="navigation">
+        <button class="btn-nav" onclick="nextStep(1)" style="margin-right: auto; background: transparent !important;">Back</button>
+        <button class="btn-nav" id="next-2" disabled onclick="nextStep(3)">View Suggestions</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Suggestions & Porsche Panamera Photo -->
+    <div id="step-3" class="step-content">
+      <h2>3. Tailored Vehicle Suggestions</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Based on your criteria, here is a primary recommendation matching elite performance and luxury comfort standards:</p>
+      
+      <div style="margin-bottom: 20px; text-align: center;">
+        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80" 
+             alt="Porsche Panamera Advisory Match" 
+             style="width: 100%; border-radius: 10px; height: 200px; object-fit: cover; border: 1px solid rgba(197, 160, 89, 0.3);">
+        <h4 style="color: var(--accent-gold); margin-top: 10px; font-size: 1.1rem;">Porsche Panamera / Executive Line</h4>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Exceptional long-distance comfort, refined hybrid/petrol powertrains, and peerless residual value.</p>
+      </div>
+
+      <div class="navigation">
+        <button class="btn-nav" onclick="nextStep(2)" style="margin-right: auto; background: transparent !important;">Back</button>
+        <button class="btn-nav" id="next-3" onclick="nextStep(4)" style="background: var(--accent-gold) !important; color: #0b0c10; font-weight: 700;">Request Advisory Report</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Name and Email Inquiry -->
+    <div id="step-4" class="step-content">
+      <h2>4. Finalize Your Consultation Inquiry</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Enter your details below to receive your customized advisory report and total cost of ownership breakdown from Paul T.</p>
+      
+      <form onsubmit="submitInquiry(event)">
+        <div class="form-group">
+          <label for="userName">Full Name</label>
+          <input type="text" id="userName" class="form-control" placeholder="e.g. Michael Schmidt" required>
+        </div>
+        <div class="form-group">
+          <label for="userEmail">Email Address</label>
+          <input type="email" id="userEmail" class="form-control" placeholder="e.g. michael@example.com" required>
+        </div>
+        <div class="navigation">
+          <button type="button" class="btn-nav" onclick="nextStep(3)" style="margin-right: auto; background: transparent !important;">Back</button>
+          <button type="submit" class="btn-nav" style="background: var(--accent-gold) !important; color: #0b0c10; font-weight: 700;">Submit Inquiry</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success View -->
+    <div id="step-success" class="step-content" style="text-align: center; padding: 20px 0;">
+      <h2 style="color: var(--accent-gold); margin-bottom: 15px;">Inquiry Received Successfully!</h2>
+      <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 20px;">Thank you. Paul T. will review your custom criteria and get in touch with your independent market report shortly.</p>
+      <button class="btn-nav" onclick="resetWizard()" style="background: var(--accent-gold) !important; color: #0b0c10; font-weight: 700; margin: 0 auto;">Start Over</button>
+    </div>
+
   </div>
 
   <!-- 2026 German Market Brand & Model Reliability Directory -->
@@ -190,11 +283,40 @@
   </footer>
 
   <script>
-    function selectOption(element, value) {
+    const userSelections = {
+      budget: null,
+      powertrain: null
+    };
+
+    function selectOption(element, category, value, nextButtonId) {
       const buttons = element.parentElement.querySelectorAll('.btn-option');
       buttons.forEach(btn => btn.classList.remove('selected'));
       element.classList.add('selected');
-      document.getElementById('next-1').disabled = false;
+      
+      userSelections[category] = value;
+      document.getElementById(nextButtonId).disabled = false;
+    }
+
+    function nextStep(stepNumber) {
+      document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+      document.getElementById(`step-${stepNumber}`).classList.add('active');
+    }
+
+    function submitInquiry(event) {
+      event.preventDefault();
+      document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('step-success').classList.add('active');
+    }
+
+    function resetWizard() {
+      userSelections.budget = null;
+      userSelections.powertrain = null;
+      document.querySelectorAll('.btn-option').forEach(btn => btn.classList.remove('selected'));
+      document.getElementById('next-1').disabled = true;
+      document.getElementById('next-2').disabled = true;
+      document.getElementById('userName').value = '';
+      document.getElementById('userEmail').value = '';
+      nextStep(1);
     }
 
     const brandDatabase = {
