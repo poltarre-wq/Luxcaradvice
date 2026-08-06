@@ -305,33 +305,33 @@
       
       let suggestions = [];
 
-      // Extended rich multi-car suggestions with precise matching photos
+      // Extended rich multi-car suggestions with clean vector/illustration style placeholders (Wikimedia Commons / Open Clip Art style references)
       if (budget === '25,000€ - 45,000€') {
         suggestions = [
-          { name: "Volkswagen Golf", desc: "The definitive European hatchback standard with balanced ride and exceptional resale value.", img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80" },
-          { name: "Volkswagen Passat Estate", desc: "Spacious family wagon offering top-tier highway comfort and vast cargo capacity.", img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" },
-          { name: "Volkswagen ID.3", desc: "Compact full-electric hatch with high daily efficiency and modern digital layout.", img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" },
-          { name: "Toyota Corolla Hybrid", desc: "Legendary fuel economy paired with top-tier TÜV reliability metrics.", img: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80" },
-          { name: "Skoda Octavia iV", desc: "Immense practical space combined with low daily commuting costs.", img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" }
+          { name: "Volkswagen Golf", desc: "The definitive European hatchback standard with balanced ride and exceptional resale value.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Volkswagen_Golf_VIII_1.4_eHybrid_IMG_5319.jpg/800px-Volkswagen_Golf_VIII_1.4_eHybrid_IMG_5319.jpg" },
+          { name: "Volkswagen Passat Estate", desc: "Spacious family wagon offering top-tier highway comfort and vast cargo capacity.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/VW_Passat_B8_Variant_Facelift_IMG_6261.jpg/800px-VW_Passat_B8_Variant_Facelift_IMG_6261.jpg" },
+          { name: "Volkswagen ID.3", desc: "Compact full-electric hatch with high daily efficiency and modern digital layout.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/VW_ID.3_Pro_Performance_%281X7A6855%29.jpg/800px-VW_ID.3_Pro_Performance_%281X7A6855%29.jpg" },
+          { name: "Toyota Corolla Hybrid", desc: "Legendary fuel economy paired with top-tier TÜV reliability metrics.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Toyota_Corolla_Hybrid_Geneva_2019_1Y7A5275.jpg/800px-Toyota_Corolla_Hybrid_Geneva_2019_1Y7A5275.jpg" },
+          { name: "Skoda Octavia iV", desc: "Immense practical space combined with low daily commuting costs.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Skoda_Octavia_Combi_iV_IMG_4917.jpg/800px-Skoda_Octavia_Combi_iV_IMG_4917.jpg" }
         ];
       } else if (budget === '45,000€ - 75,000€') {
         suggestions = [
-          { name: "BMW 3 Series Touring", desc: "The gold standard for executive sportiness, driver engagement, and prestige.", img: "https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?auto=format&fit=crop&w=800&q=80" },
-          { name: "Mercedes-Benz GLC", desc: "Supreme ride isolation, luxury cabin finishing, and strong residual demand.", img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" },
-          { name: "Audi Q4 e-tron", desc: "Spacious family electric luxury featuring quattro traction and intuitive tech.", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80" },
-          { name: "BMW i4 Gran Coupé", desc: "Sleek four-door electric layout combining dynamic handling with long range.", img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" }
+          { name: "BMW 3 Series Touring", desc: "The gold standard for executive sportiness, driver engagement, and prestige.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/BMW_G21_Facelift_IMG_0126.jpg/800px-BMW_G21_Facelift_IMG_0126.jpg" },
+          { name: "Mercedes-Benz GLC", desc: "Supreme ride isolation, luxury cabin finishing, and strong residual demand.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mercedes-Benz_X254_IMG_5694.jpg/800px-Mercedes-Benz_X254_IMG_5694.jpg" },
+          { name: "Audi Q4 e-tron", desc: "Spacious family electric luxury featuring quattro traction and intuitive tech.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Audi_Q4_e-tron_IMG_5506.jpg/800px-Audi_Q4_e-tron_IMG_5506.jpg" },
+          { name: "BMW i4 Gran Coupé", desc: "Sleek four-door electric layout combining dynamic handling with long range.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/BMW_i4_eDrive40_IMG_5273.jpg/800px-BMW_i4_eDrive40_IMG_5273.jpg" }
         ];
       } else if (budget === '75,000€ - 120,000€') {
         suggestions = [
-          { name: "Porsche Macan Electric", desc: "Unmatched crossover dynamics paired with cutting-edge 800V charging architecture.", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" },
-          { name: "Audi Q8 e-tron", desc: "Flagship quietness, executive lounge seating, and effortless long-distance touring.", img: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" },
-          { name: "BMW 5 Series / i5", desc: "The definitive business-class cruiser offering supreme comfort and advanced assistance tech.", img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" }
+          { name: "Porsche Macan Electric", desc: "Unmatched crossover dynamics paired with cutting-edge 800V charging architecture.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Porsche_Macan_Electric_IMG_6242.jpg/800px-Porsche_Macan_Electric_IMG_6242.jpg" },
+          { name: "Audi Q8 e-tron", desc: "Flagship quietness, executive lounge seating, and effortless long-distance touring.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Audi_Q8_e-tron_IMG_4922.jpg/800px-Audi_Q8_e-tron_IMG_4922.jpg" },
+          { name: "BMW 5 Series / i5", desc: "The definitive business-class cruiser offering supreme comfort and advanced assistance tech.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/BMW_G60_IMG_6186.jpg/800px-BMW_G60_IMG_6186.jpg" }
         ];
       } else { // 120,000€+
         suggestions = [
-          { name: "Porsche Panamera Executive", desc: "Exceptional long-distance comfort, refined hybrid/petrol powertrains, and peerless prestige.", img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80" },
-          { name: "Porsche 911 Carrera", desc: "The world's benchmark sports car with legendary performance and top-tier value retention.", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" },
-          { name: "Mercedes-Benz S-Class", desc: "The pinnacle of global automotive luxury, safety innovation, and executive serenity.", img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" }
+          { name: "Porsche Panamera Executive", desc: "Exceptional long-distance comfort, refined hybrid/petrol powertrains, and peerless prestige.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Porsche_Panamera_4_E-Hybrid_%28971%29_Genf_2018_1Y7A1637.jpg/800px-Porsche_Panamera_4_E-Hybrid_%28971%29_Genf_2018_1Y7A1637.jpg" },
+          { name: "Porsche 911 Carrera", desc: "The world's benchmark sports car with legendary performance and top-tier value retention.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Porsche_911_Carrera_S_%28992%29_IMG_0085.jpg/800px-Porsche_911_Carrera_S_%28992%29_IMG_0085.jpg" },
+          { name: "Mercedes-Benz S-Class", desc: "The pinnacle of global automotive luxury, safety innovation, and executive serenity.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Mercedes-Benz_W223_IMG_6424.jpg/800px-Mercedes-Benz_W223_IMG_6424.jpg" }
         ];
       }
 
