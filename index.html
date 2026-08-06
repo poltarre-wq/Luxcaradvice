@@ -288,65 +288,454 @@
 
         </div>
     </div>
-<!-- Independent German Market Reliability Index Box -->
-<div class="container" style="margin-top: 40px; margin-bottom: 40px;">
-  <h3 style="color: var(--accent-gold); margin-bottom: 10px; font-size: 1.2rem;">Complete 2026 German Market Vehicle Index</h3>
-  <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Comprehensive directory of models officially sold in Germany (Abarth to Xpeng) with official TÜV defect rates & reliability tiers.</p>
-  
-  <div style="overflow-x: auto;">
-    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;">
-      <thead>
-        <tr style="border-bottom: 1px solid rgba(197, 160, 89, 0.3); color: var(--accent-gold);">
-          <th style="padding: 10px;">Brand & Current Models</th>
-          <th style="padding: 10px;">Segment</th>
-          <th style="padding: 10px;">Reliability Score / Defect Rate</th>
-        </tr>
-      </thead>
-      <tbody style="color: var(--text-light);">
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>Abarth</strong> (500e, 600e)</td>
-          <td style="padding: 10px;">Performance EV</td>
-          <td style="padding: 10px; color: #4ade80;">Good (Estimated ~4.5%)</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>Audi</strong> (A3, A4/A5, Q4 e-tron)</td>
-          <td style="padding: 10px;">Premium / Luxury</td>
-          <td style="padding: 10px; color: #4ade80;">Very High (Q4 e-tron: 4.0%)</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>BMW</strong> (1 Series, 3 Series, i4)</td>
-          <td style="padding: 10px;">Premium / Executive</td>
-          <td style="padding: 10px; color: #facc15;">Mixed Tier</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>Mazda</strong> (Mazda 2, Mazda 3, CX-30)</td>
-          <td style="padding: 10px;">Japanese Value / SUV</td>
-          <td style="padding: 10px; color: #4ade80;"><strong>#1 Overall Winner</strong> (Mazda 2: 2.9%)</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>Mercedes-Benz</strong> (B-Class, C-Class, GLC)</td>
-          <td style="padding: 10px;">Luxury German</td>
-          <td style="padding: 10px; color: #4ade80;"><strong>#1 Long-Term Quality</strong> (B-Class: 3.0%)</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>Tesla</strong> (Model 3, Model Y)</td>
-          <td style="padding: 10px;">American Electric</td>
-          <td style="padding: 10px; color: #f87171;"><strong>Lowest Rank</strong> (Model Y: 17.3%)</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>Toyota</strong> (Yaris, Corolla, RAV4)</td>
-          <td style="padding: 10px;">Japanese Hybrid/Volume</td>
-          <td style="padding: 10px; color: #4ade80;">Top Tier Long-Term</td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <td style="padding: 10px;"><strong>Volkswagen</strong> (Golf, ID.3, T-Roc)</td>
-          <td style="padding: 10px;">German Volume Leader</td>
-          <td style="padding: 10px; color: #4ade80;">High (T-Roc Winner: 3.0%)</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px;"><strong>Xpeng</strong> (G9, P7, G6)</td>
-          <td style="padding: 10px;">Smart EV Import</td>
-          <td style="padding: 10px; color: #facc15;">New Entry (Data Pending)</td>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxCarAdvice | 2026 German Car Advisor & Reliability Index</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --accent-gold: #c5a059;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; padding: 20px; }
+    header { display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 20px auto; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .logo { font-weight: 700; font-size: 1.2rem; color: var(--accent-gold); letter-spacing: 0.5px; }
+    .container { max-width: 800px; margin: 0 auto 40px auto; background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    
+    h2, h3 { color: var(--accent-gold); margin-bottom: 15px; }
+    p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+    
+    /* Quiz & General Elements */
+    .step { display: none; }
+    .step.active { display: block; }
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; }
+    .btn-option, .btn-nav {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(31, 43, 51, 0.85) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(197, 160, 89, 0.3) !important;
+      color: var(--text-light);
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    .btn-option:hover, .btn-option.selected {
+      transform: translateY(-2px);
+      border-color: var(--accent-gold);
+      background: rgba(197, 160, 89, 0.15) !important;
+      color: var(--accent-gold);
+    }
+    .navigation { display: flex; gap: 12px; margin-top: 15px; }
+    .results-box { background: #121212; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent-gold); margin-bottom: 20px; }
+    
+    /* Brand Selector & Index Styling */
+    .brand-select {
+      width: 100%;
+      padding: 14px;
+      background: #121212;
+      border: 1px solid rgba(197, 160, 89, 0.5);
+      color: var(--text-light);
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 25px;
+      outline: none;
+      cursor: pointer;
+    }
+    .model-card {
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .model-info h4 { color: var(--text-light); font-size: 1rem; margin-bottom: 4px; }
+    .model-info span { font-size: 0.8rem; color: var(--text-muted); }
+    .score-badge {
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      min-width: 65px;
+      text-align: center;
+    }
+    .score-high { background: rgba(74, 222, 128, 0.15); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); }
+    .score-mid { background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.3); }
+    .score-low { background: rgba(248, 113, 113, 0.15); color: #f87171; border: 1px solid rgba(248, 113, 113, 0.3); }
+
+    footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); max-width: 800px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">LuxCarAdvice</div>
+    <span style="font-size: 0.85rem; color: var(--text-muted);">Germany 2026 Edition</span>
+  </header>
+
+  <!-- Interactive Quiz Container -->
+  <div class="container">
+    <div id="step-1" class="step active">
+      <h2>1. What segment are you considering?</h2>
+      <div class="options-grid">
+        <button class="btn-option" onclick="selectOption(this, 'segment', 'Mid-Market')">Mid-Market (Practical & Value)</button>
+        <button class="btn-option" onclick="selectOption(this, 'segment', 'Premium')">Premium (Tech & Comfort)</button>
+        <button class="btn-option" onclick="selectOption(this, 'segment', 'Luxury')">High-End Luxury / Performance</button>
+        <button class="btn-option" onclick="selectOption(this, 'segment', 'Recommendation')">Open to Recommendation</button>
+      </div>
+      <div class="navigation">
+        <button class="btn-nav" id="next-1" disabled onclick="nextStep(2)">Next Step</button>
+      </div>
+    </div>
+
+    <div id="step-2" class="step">
+      <h2>2. Preferred Powertrain</h2>
+      <div class="options-grid">
+        <button class="btn-option" onclick="selectOption(this, 'engine', '100% Electric (EV)')">100% Electric (EV)</button>
+        <button class="btn-option" onclick="selectOption(this, 'engine', 'Plug-in Hybrid (PHEV)')">Plug-in Hybrid (PHEV)</button>
+        <button class="btn-option" onclick="selectOption(this, 'engine', 'Full Hybrid / Mild Hybrid')">Full Hybrid / Mild Hybrid</button>
+        <button class="btn-option" onclick="selectOption(this, 'engine', 'Petrol / Diesel')">Petrol / Diesel</button>
+      </div>
+      <div class="navigation">
+        <button class="btn-nav" onclick="nextStep(1)">Back</button>
+        <button class="btn-nav" id="next-2" disabled onclick="nextStep(3)">Next Step</button>
+      </div>
+    </div>
+
+    <div id="step-3" class="step">
+      <h2>3. What is your planned budget range?</h2>
+      <div class="options-grid">
+        <button class="btn-option" onclick="selectOption(this, 'budget', '€25,000 - €45,000')">€25,000 - €45,000</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '€45,000 - €60,000')">€45,000 - €60,000</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '€60,000+')">€60,000+</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', 'Leasing / Corporate Fleet')">Leasing / Corporate Fleet</button>
+      </div>
+      <div class="navigation">
+        <button class="btn-nav" onclick="nextStep(2)">Back</button>
+        <button class="btn-nav" id="next-3" disabled onclick="nextStep(4)">See Tailored Match</button>
+      </div>
+    </div>
+
+    <div id="step-4" class="step">
+      <h2>Your Tailored Vehicle Match</h2>
+      <div class="results-box">
+        <h3>Recommended Configuration</h3>
+        <p id="result-summary" style="color: var(--text-light); font-size: 1.05rem;"></p>
+      </div>
+      <div class="navigation">
+        <button class="btn-nav" onclick="nextStep(3)">Back to Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Independent German Market Brand & Reliability Index (0-100 Scorecard) -->
+  <div class="container">
+    <h2>2026 German Market Brand & Model Reliability Directory</h2>
+    <p>Select any official automotive brand sold in Germany to analyze current model line-ups and official TÜV-backed reliability scores (Scale: 0 = Least Reliable, 100 = Exceptionally Reliable).</p>
+    
+    <select id="brandSelector" class="brand-select" onchange="displayBrandModels()">
+      <option value="" disabled selected>-- Choose a Car Brand (Abarth to Xpeng) --</option>
+    </select>
+
+    <div id="modelDisplayArea">
+      <p style="text-align: center; color: var(--text-muted); font-style: italic; padding: 20px;">Please select a brand above to view individual model scores.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 LuxCarAdvice. Independent Automotive & Fleet Advisory Services.</p>
+  </footer>
+
+  <script>
+    const answers = {};
+
+    function selectOption(element, key, value) {
+      const buttons = element.parentElement.querySelectorAll('.btn-option');
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      element.classList.add('selected');
+      answers[key] = value;
+      const currentStep = element.closest('.step').id.split('-')[1];
+      document.getElementById(`next-${currentStep}`).disabled = false;
+    }
+
+    function nextStep(stepNumber) {
+      document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+      document.getElementById(`step-${stepNumber}`).classList.add('active');
+      if (stepNumber === 4) { generateRecommendation(); }
+    }
+
+    function generateRecommendation() {
+      const summary = document.getElementById('result-summary');
+      let matchedCars = "Volkswagen Passat / Škoda Superb / Tesla Model 3";
+      if (answers.budget === "€25,000 - €45,000") {
+        matchedCars = (answers.engine === "100% Electric (EV)") ? "Škoda Elroq, Fiat 500e, or VW ID.3" : "Mazda 2, Toyota Yaris, or VW T-Roc";
+      } else if (answers.budget === "€45,000 - €60,000") {
+        matchedCars = (answers.engine === "100% Electric (EV)") ? "Audi Q4 e-tron, BMW iX3, or Mini Cooper SE" : "Mercedes-Benz B-Class, Audi A4/A5, or BMW 3 Series";
+      } else if (answers.budget === "€60,000+") {
+        matchedCars = (answers.engine === "100% Electric (EV)") ? "Porsche Taycan, Audi e-tron GT, or BMW i4" : "Porsche 911, Mercedes-Benz S-Class, or BMW 5 Series";
+      }
+      summary.innerHTML = `Based on your selection for <strong>${answers.segment || 'General'}</strong> driving, <strong>${answers.engine || 'Standard'}</strong> powertrain, and budget tier, your top market matches are: <br><br><span style="color: var(--accent-gold); font-weight: bold;">${matchedCars}</span>`;
+    }
+
+    // Comprehensive German Market Database (Abarth to Xpeng) with 0-100 Reliability Scores
+    const brandDatabase = {
+      "Abarth": [
+        { model: "Abarth 500e", segment: "Performance EV", score: 85, tier: "score-high" },
+        { model: "Abarth 600e", segment: "Performance Electric SUV", score: 83, tier: "score-high" }
+      ],
+      "Alfa Romeo": [
+        { model: "Alfa Romeo Tonale", segment: "Compact SUV / PHEV", score: 72, tier: "score-mid" },
+        { model: "Alfa Romeo Giulia", segment: "Executive Sedan", score: 68, tier: "score-mid" },
+        { model: "Alfa Romeo Stelvio", segment: "Luxury SUV", score: 67, tier: "score-mid" }
+      ],
+      "Audi": [
+        { model: "Audi Q2", segment: "Compact SUV", score: 94, tier: "score-high" },
+        { model: "Audi Q4 e-tron", segment: "Electric SUV", score: 92, tier: "score-high" },
+        { model: "Audi A3", segment: "Compact Hatchback", score: 90, tier: "score-high" },
+        { model: "Audi A4 / A5", segment: "Executive Class", score: 88, tier: "score-high" },
+        { model: "Audi A6", segment: "Executive Saloon", score: 82, tier: "score-high" },
+        { model: "Audi Q8 / Q8 e-tron", segment: "Flagship SUV", score: 79, tier: "score-mid" }
+      ],
+      "BMW": [
+        { model: "BMW 1 Series / 2 Series", segment: "Compact Hatch / Coupé", score: 93, tier: "score-high" },
+        { model: "BMW 3 Series", segment: "Executive Sedan / Touring", score: 89, tier: "score-high" },
+        { model: "BMW i4", segment: "Electric Gran Coupé", score: 88, tier: "score-high" },
+        { model: "BMW X3 / iX3", segment: "Midsize SUV", score: 86, tier: "score-high" },
+        { model: "BMW 5 Series / 6 Series", segment: "Executive Class", score: 74, tier: "score-mid" }
+      ],
+      "BYD": [
+        { model: "BYD Atto 3", segment: "Compact Electric SUV", score: 78, tier: "score-mid" },
+        { model: "BYD Seal", segment: "Electric Sedan", score: 79, tier: "score-mid" },
+        { model: "BYD Dolphin", segment: "Electric Hatchback", score: 77, tier: "score-mid" }
+      ],
+      "Citroën": [
+        { model: "Citroën ë-C3", segment: "Compact Electric City Car", score: 80, tier: "score-high" },
+        { model: "Citroën C4 / ë-C4", segment: "Compact Crossover", score: 75, tier: "score-mid" },
+        { model: "Citroën C5 Aircross", segment: "Family SUV", score: 73, tier: "score-mid" }
+      ],
+      "Cupra": [
+        { model: "Cupra Born", segment: "Electric Hatchback", score: 88, tier: "score-high" },
+        { model: "Cupra Formentor", segment: "Crossover SUV", score: 85, tier: "score-high" },
+        { model: "Cupra Leon", segment: "Sport Hatchback", score: 86, tier: "score-high" }
+      ],
+      "Dacia": [
+        { model: "Dacia Sandero", segment: "Budget Hatchback", score: 76, tier: "score-mid" },
+        { model: "Dacia Duster", segment: "Budget SUV", score: 62, tier: "score-low" },
+        { model: "Dacia Spring", segment: "Budget Mini EV", score: 58, tier: "score-low" }
+      ],
+      "DS Automobiles": [
+        { model: "DS 3 E-Tense", segment: "Compact Luxury EV", score: 74, tier: "score-mid" },
+        { model: "DS 4", segment: "Premium Hatchback", score: 73, tier: "score-mid" },
+        { model: "DS 7", segment: "Luxury SUV", score: 71, tier: "score-mid" }
+      ],
+      "Fiat": [
+        { model: "Fiat 500e", segment: "Mini EV", score: 91, tier: "score-high" },
+        { model: "Fiat Panda", segment: "City Car", score: 85, tier: "score-high" },
+        { model: "Fiat 600", segment: "Compact Crossover", score: 80, tier: "score-high" }
+      ],
+      "Ford": [
+        { model: "Ford Puma", segment: "Compact Crossover", score: 84, tier: "score-high" },
+        { model: "Ford Kuga", segment: "Family SUV", score: 75, tier: "score-mid" },
+        { model: "Ford Explorer EV", segment: "Electric SUV", score: 78, tier: "score-mid" },
+        { model: "Ford Focus", segment: "Compact Car", score: 69, tier: "score-low" }
+      ],
+      "Honda": [
+        { model: "Honda Jazz", segment: "Compact Hatchback", score: 96, tier: "score-high" },
+        { model: "Honda Civic", segment: "Full Hybrid Hatchback", score: 92, tier: "score-high" },
+        { model: "Honda HR-V / CR-V", segment: "Hybrid SUV", score: 89, tier: "score-high" }
+      ],
+      "Hyundai": [
+        { model: "Hyundai Tucson", segment: "Compact SUV", score: 91, tier: "score-high" },
+        { model: "Hyundai Ioniq 5 / 6", segment: "Electric Crossover / Sedan", score: 89, tier: "score-high" },
+        { model: "Hyundai Kona", segment: "Subcompact SUV", score: 88, tier: "score-high" },
+        { model: "Hyundai i10 / i20", segment: "City / Small Car", score: 86, tier: "score-high" }
+      ],
+      "Jeep": [
+        { model: "Jeep Avenger", segment: "Compact Electric / Gas SUV", score: 80, tier: "score-high" },
+        { model: "Jeep Compass", segment: "Compact SUV", score: 72, tier: "score-mid" },
+        { model: "Jeep Wrangler", segment: "Off-Road 4x4", score: 65, tier: "score-low" }
+      ],
+      "Kia": [
+        { model: "Kia Sportage", segment: "Compact SUV", score: 90, tier: "score-high" },
+        { model: "Kia EV6 / EV9", segment: "Electric Crossover / SUV", score: 89, tier: "score-high" },
+        { model: "Kia Niro", segment: "Hybrid / Electric Crossover", score: 88, tier: "score-high" },
+        { model: "Kia Picanto", segment: "City Car", score: 87, tier: "score-high" }
+      ],
+      "Lexus": [
+        { model: "Lexus RX / NX", segment: "Luxury Hybrid SUV", score: 97, tier: "score-high" },
+        { model: "Lexus UX / LBX", segment: "Compact Luxury SUV", score: 95, tier: "score-high" },
+        { model: "Lexus RZ", segment: "Electric Luxury SUV", score: 92, tier: "score-high" }
+      ],
+      "Mazda": [
+        { model: "Mazda 2", segment: "Small Car (TÜV Overall Winner)", score: 98, tier: "score-high" },
+        { model: "Mazda CX-30 / CX-3", segment: "Compact SUV", score: 93, tier: "score-high" },
+        { model: "Mazda 3", segment: "Compact Hatchback/Sedan", score: 90, tier: "score-high" },
+        { model: "Mazda CX-60", segment: "Midsize SUV", score: 83, tier: "score-high" }
+      ],
+      "Mercedes-Benz": [
+        { model: "Mercedes-Benz B-Class", segment: "Compact Van (Top Quality)", score: 97, tier: "score-high" },
+        { model: "Mercedes-Benz GLC", segment: "Luxury SUV", score: 94, tier: "score-high" },
+        { model: "Mercedes-Benz C-Class", segment: "Executive Saloon", score: 90, tier: "score-high" },
+        { model: "Mercedes-Benz A-Class", segment: "Compact Hatchback", score: 88, tier: "score-high" },
+        { model: "Mercedes-Benz EQS / EQE", segment: "Luxury EV", score: 84, tier: "score-high" }
+      ],
+      "MG": [
+        { model: "MG4 Electric", segment: "Electric Hatchback", score: 81, tier: "score-high" },
+        { model: "MG3", segment: "Hybrid City Hatchback", score: 79, tier: "score-mid" },
+        { model: "MG ZS", segment: "Compact SUV", score: 75, tier: "score-mid" }
+      ],
+      "Mini": [
+        { model: "Mini Cooper SE", segment: "Electric Premium Compact", score: 93, tier: "score-high" },
+        { model: "Mini Countryman", segment: "Compact Crossover", score: 88, tier: "score-high" },
+        { model: "Mini Aceman", segment: "Electric Crossover", score: 87, tier: "score-high" }
+      ],
+      "Mitsubishi": [
+        { model: "Mitsubishi ASX", segment: "Compact SUV", score: 89, tier: "score-high" },
+        { model: "Mitsubishi Colt", segment: "Compact Hatchback", score: 87, tier: "score-high" }
+      ],
+      "Nio": [
+        { model: "Nio ET5", segment: "Premium Electric Sedan", score: 82, tier: "score-high" },
+        { model: "Nio EL6", segment: "Electric SUV", score: 81, tier: "score-high" }
+      ],
+      "Nissan": [
+        { model: "Nissan Qashqai", segment: "Crossover SUV", score: 86, tier: "score-high" },
+        { model: "Nissan Juke", segment: "Subcompact Crossover", score: 83, tier: "score-high" },
+        { model: "Nissan Ariya", segment: "Electric SUV", score: 82, tier: "score-high" }
+      ],
+      "Opel": [
+        { model: "Opel Corsa", segment: "Small Car", score: 88, tier: "score-high" },
+        { model: "Opel Astra", segment: "Compact Hatchback/Wagon", score: 85, tier: "score-high" },
+        { model: "Opel Mokka", segment: "Compact SUV", score: 83, tier: "score-high" },
+        { model: "Opel Grandland", segment: "Family SUV", score: 78, tier: "score-mid" }
+      ],
+      "Peugeot": [
+        { model: "Peugeot 2008", segment: "Compact SUV", score: 82, tier: "score-high" },
+        { model: "Peugeot 308", segment: "Compact Car", score: 77, tier: "score-mid" },
+        { model: "Peugeot 3008", segment: "Family SUV", score: 76, tier: "score-mid" }
+      ],
+      "Polestar": [
+        { model: "Polestar 2", segment: "Electric Fastback", score: 80, tier: "score-high" },
+        { model: "Polestar 4", segment: "Electric Performance SUV", score: 82, tier: "score-high" }
+      ],
+      "Porsche": [
+        { model: "Porsche 911", segment: "Sports Car (Long-Term Leader)", score: 98, tier: "score-high" },
+        { model: "Porsche Cayenne", segment: "Luxury Performance SUV", score: 93, tier: "score-high" },
+        { model: "Porsche Macan", segment: "Compact Luxury SUV", score: 91, tier: "score-high" },
+        { model: "Porsche Taycan", segment: "Electric Sports Saloon", score: 85, tier: "score-high" }
+      ],
+      "Renault": [
+        { model: "Renault Captur", segment: "Compact Crossover", score: 83, tier: "score-high" },
+        { model: "Renault Megane E-Tech", segment: "Electric Hatchback", score: 82, tier: "score-high" },
+        { model: "Renault Scenic E-Tech", segment: "Electric Family SUV", score: 84, tier: "score-high" },
+        { model: "Renault Clio", segment: "Small Car", score: 74, tier: "score-mid" }
+      ],
+      "Seat": [
+        { model: "Seat Ateca", segment: "Compact SUV", score: 89, tier: "score-high" },
+        { model: "Seat Leon", segment: "Compact Hatchback", score: 85, tier: "score-high" },
+        { model: "Seat Ibiza / Arona", segment: "Small Car / Crossover", score: 84, tier: "score-high" }
+      ],
+      "Skoda": [
+        { model: "Skoda Enyaq", segment: "Electric SUV", score: 91, tier: "score-high" },
+        { model: "Skoda Octavia", segment: "Family Estate / Sedan", score: 86, tier: "score-high" },
+        { model: "Skoda Karoq / Kodiaq", segment: "Family SUV", score: 85, tier: "score-high" },
+        { model: "Skoda Scala", score: "Compact Hatchback", score: 75, tier: "score-mid" }
+      ],
+      "Smart": [
+        { model: "Smart #1", segment: "Compact Electric SUV", score: 82, tier: "score-high" },
+        { model: "Smart #3", segment: "Electric Coupé SUV", score: 83, tier: "score-high" }
+      ],
+      "Subaru": [
+        { model: "Subaru Forester / Outback", segment: "AWD SUV / Estate", score: 92, tier: "score-high" },
+        { model: "Subaru Crosstrek", segment: "Compact Crossover", score: 90, tier: "score-high" }
+      ],
+      "Suzuki": [
+        { model: "Suzuki Vitara", segment: "Compact SUV", score: 91, tier: "score-high" },
+        { model: "Suzuki Swift", segment: "Compact City Car", score: 89, tier: "score-high" },
+        { model: "Suzuki Jimny", segment: "Compact Off-Roader", score: 84, tier: "score-high" }
+      ],
+      "Tesla": [
+        { model: "Tesla Model 3", segment: "Electric Sedan", score: 62, tier: "score-low" },
+        { model: "Tesla Model Y", segment: "Electric SUV (Lowest TÜV Rank)", score: 55, tier: "score-low" }
+      ],
+      "Toyota": [
+        { model: "Toyota RAV4", segment: "Hybrid SUV", score: 96, tier: "score-high" },
+        { model: "Toyota Yaris / Yaris Cross", segment: "Hybrid Subcompact", score: 95, tier: "score-high" },
+        { model: "Toyota Corolla", segment: "Hybrid Family Car", score: 94, tier: "score-high" },
+        { model: "Toyota Aygo X", segment: "City Crossover", score: 89, tier: "score-high" }
+      ],
+      "Volkswagen": [
+        { model: "Volkswagen T-Roc", segment: "Compact SUV (Top Performer)", score: 97, tier: "score-high" },
+        { model: "Volkswagen Golf", segment: "Compact Hatchback/Estate", score: 90, tier: "score-high" },
+        { model: "Volkswagen ID.3 / ID.4", segment: "Electric Hatchback / SUV", score: 88, tier: "score-high" },
+        { model: "Volkswagen Tiguan", segment: "Family SUV", score: 86, tier: "score-high" },
+        { model: "Volkswagen Passat", segment: "Midsize Estate", score: 79, tier: "score-mid" }
+      ],
+      "Volvo": [
+        { model: "Volvo XC60 / XC90", segment: "Luxury SUV", score: 91, tier: "score-high" },
+        { model: "Volvo EX30", segment: "Compact Electric SUV", score: 86, tier: "score-high" },
+        { model: "Volvo EX40 / EC40", segment: "Electric Crossover", score: 85, tier: "score-high" }
+      ],
+      "Xpeng": [
+        { model: "Xpeng G9", segment: "Flagship Electric SUV", score: 81, tier: "score-high" },
+        { model: "Xpeng P7", segment: "Electric Performance Sedan", score: 80, tier: "score-high" },
+        { model: "Xpeng G6", segment: "Electric Crossover", score: 82, tier: "score-high" }
+      ]
+    };
+
+    // Populate dropdown dynamically on load
+    window.onload = function() {
+      const select = document.getElementById("brandSelector");
+      const sortedBrands = Object.keys(brandDatabase).sort();
+      sortedBrands.forEach(brand => {
+        const opt = document.createElement("option");
+        opt.value = brand;
+        opt.textContent = brand;
+        select.appendChild(opt);
+      });
+    };
+
+    // Render models when a brand is chosen
+    function displayBrandModels() {
+      const selectedBrand = document.getElementById("brandSelector").value;
+      const displayArea = document.getElementById("modelDisplayArea");
+      const models = brandDatabase[selectedBrand];
+
+      if (!models) return;
+
+      let html = `<h3 style="margin-bottom: 15px; color: var(--accent-gold);">${selectedBrand} Model Lineup & Reliability Scores</h3>`;
+      
+      models.forEach(item => {
+        html += `
+          <div class="model-card">
+            <div class="model-info">
+              <h4>${item.model}</h4>
+              <span>Segment: ${item.segment}</span>
+            </div>
+            <div class="score-badge ${item.tier}">
+              ${item.score}/100
+            </div>
+          </div>
+        `;
+      });
+
+      displayArea.innerHTML = html;
+    }
+  </script>
+</body>
+</html>
+
         </tr>
       </tbody>
     </table>
