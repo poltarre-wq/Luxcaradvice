@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -191,9 +191,9 @@
       <h2>1. What is your target budget?</h2>
       <div class="options-grid">
         <button class="btn-option" onclick="selectOption(this, 'budget', '25,000€ - 45,000€', 'next-1')">25,000€ - 45,000€</button>
-        <button class="btn-option" onclick="selectOption(this, 'budget', '45,000€ - 60,000€', 'next-1')">45,000€ - 60,000€</button>
-        <button class="btn-option" onclick="selectOption(this, 'budget', '60,000€ - 80,000€', 'next-1')">60,000€ - 80,000€</button>
-        <button class="btn-option" onclick="selectOption(this, 'budget', '80,000€+', 'next-1')">80,000€+</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '45,000€ - 75,000€', 'next-1')">45,000€ - 75,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '75,000€ - 120,000€', 'next-1')">75,000€ - 120,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '120,000€+', 'next-1')">120,000€+</button>
       </div>
       <div class="navigation">
         <button class="btn-nav" id="next-1" disabled onclick="nextStep(2)">Next Step</button>
@@ -215,20 +215,13 @@
       </div>
     </div>
 
-    <!-- Step 3: Suggestions & Porsche Panamera Photo -->
+    <!-- Step 3: Extended Multi-Car Suggestions -->
     <div id="step-3" class="step-content">
       <h2>3. Tailored Vehicle Suggestions</h2>
-      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Based on your criteria, here is a primary recommendation matching elite performance and luxury comfort standards:</p>
-      
-      <div style="margin-bottom: 20px; text-align: center;">
-        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80" 
-             alt="Porsche Panamera Advisory Match" 
-             style="width: 100%; border-radius: 10px; height: 200px; object-fit: cover; border: 1px solid rgba(197, 160, 89, 0.3);">
-        <h4 style="color: var(--accent-gold); margin-top: 10px; font-size: 1.1rem;">Porsche Panamera / Executive Line</h4>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Exceptional long-distance comfort, refined hybrid/petrol powertrains, and peerless residual value.</p>
+      <div id="suggestions-container" style="max-height: 420px; overflow-y: auto; padding-right: 5px;">
+        <!-- Dynamically injected extended car catalog -->
       </div>
-
-      <div class="navigation">
+      <div class="navigation" style="margin-top: 15px;">
         <button class="btn-nav" onclick="nextStep(2)" style="margin-right: auto; background: transparent !important;">Back</button>
         <button class="btn-nav" id="next-3" onclick="nextStep(4)" style="background: var(--accent-gold) !important; color: #0b0c10; font-weight: 700;">Request Advisory Report</button>
       </div>
@@ -298,8 +291,62 @@
     }
 
     function nextStep(stepNumber) {
+      if (stepNumber === 3) {
+        updateSuggestions();
+      }
       document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
       document.getElementById(`step-${stepNumber}`).classList.add('active');
+    }
+
+    function updateSuggestions() {
+      const budget = userSelections.budget;
+      const pt = userSelections.powertrain;
+      const container = document.getElementById('suggestions-container');
+      
+      let suggestions = [];
+
+      // Extended rich multi-car suggestions across categories
+      if (budget === '25,000€ - 45,000€') {
+        suggestions = [
+          { name: "Volkswagen Golf", desc: "The definitive European hatchback standard with balanced ride and exceptional resale value.", img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80" },
+          { name: "Volkswagen Passat Estate", desc: "Spacious family wagon offering top-tier highway comfort and vast cargo capacity.", img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" },
+          { name: "Volkswagen ID.3", desc: "Compact full-electric hatch with high daily efficiency and modern digital layout.", img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" },
+          { name: "Toyota Corolla Hybrid", desc: "Legendary fuel economy paired with top-tier TÜV reliability metrics.", img: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80" },
+          { name: "Skoda Octavia iV", desc: "Immense practical space combined with low daily commuting costs.", img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" }
+        ];
+      } else if (budget === '45,000€ - 75,000€') {
+        suggestions = [
+          { name: "BMW 3 Series Touring", desc: "The gold standard for executive sportiness, driver engagement, and prestige.", img: "https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?auto=format&fit=crop&w=800&q=80" },
+          { name: "Mercedes-Benz GLC", desc: "Supreme ride isolation, luxury cabin finishing, and strong residual demand.", img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" },
+          { name: "Audi Q4 e-tron", desc: "Spacious family electric luxury featuring quattro traction and intuitive tech.", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80" },
+          { name: "BMW i4 Gran Coupé", desc: "Sleek four-door electric layout combining dynamic handling with long range.", img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" }
+        ];
+      } else if (budget === '75,000€ - 120,000€') {
+        suggestions = [
+          { name: "Porsche Macan Electric", desc: "Unmatched crossover dynamics paired with cutting-edge 800V charging architecture.", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" },
+          { name: "Audi Q8 e-tron", desc: "Flagship quietness, executive lounge seating, and effortless long-distance touring.", img: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" },
+          { name: "BMW 5 Series / i5", desc: "The definitive business-class cruiser offering supreme comfort and advanced assistance tech.", img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" }
+        ];
+      } else { // 120,000€+
+        suggestions = [
+          { name: "Porsche Panamera Executive", desc: "Exceptional long-distance comfort, refined hybrid/petrol powertrains, and peerless prestige.", img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=80" },
+          { name: "Porsche 911 Carrera", desc: "The world's benchmark sports car with legendary performance and top-tier value retention.", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" },
+          { name: "Mercedes-Benz S-Class", desc: "The pinnacle of global automotive luxury, safety innovation, and executive serenity.", img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" }
+        ];
+      }
+
+      let html = `<p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Criteria: <strong style="color:var(--accent-gold);">${budget}</strong> &bull; <strong style="color:var(--accent-gold);">${pt}</strong></p>`;
+      
+      suggestions.forEach(item => {
+        html += `
+          <div style="background: #0b0c10; border: 1px solid rgba(197, 160, 89, 0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+            <img src="${item.img}" alt="${item.name}" style="width: 100%; border-radius: 8px; height: 150px; object-fit: cover; margin-bottom: 10px;">
+            <h4 style="color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 5px;">${item.name}</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">${item.desc}</p>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
     }
 
     function submitInquiry(event) {
