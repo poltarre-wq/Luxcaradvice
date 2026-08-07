@@ -283,15 +283,16 @@
       <h2>4. Finalize Your Consultation Inquiry</h2>
       <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 30px;">Enter your details below to receive your customized independent advisory report and detailed Total Cost of Ownership breakdown directly from Paul T.</p>
       
-      <form onsubmit="submitInquiry(event)">
-        <div class="form-group">
-          <label for="userName">Full Name</label>
-          <input type="text" id="userName" class="form-control" placeholder="e.g. Michael Schmidt" required>
-        </div>
-        <div class="form-group">
-          <label for="userEmail">Email Address</label>
-          <input type="email" id="userEmail" class="form-control" placeholder="e.g. michael@example.com" required>
-        </div>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="submitInquiry(event)">
+  <div class="form-group">
+    <label for="userName">Full Name</label>
+    <input type="text" id="userName" name="name" class="form-control" placeholder="e.g. Michael Schmidt" required>
+  </div>
+  <div class="form-group">
+    <label for="userEmail">Email Address</label>
+    <input type="email" id="userEmail" name="email" class="form-control" placeholder="e.g. michael@example.com" required>
+  </div>
+
         <div class="navigation">
           <button type="button" class="btn-nav" onclick="nextStep(3)" style="margin-right: auto; background: transparent !important;">Back</button>
           <button type="submit" class="btn-nav" style="background: var(--accent-gold) !important; color: #0b0c10; font-weight: 700;">Submit Inquiry</button>
