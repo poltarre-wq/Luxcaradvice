@@ -24,6 +24,20 @@
     .bmw-fade {
       animation: fadeIn 300ms ease-in-out;
     }
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
 
     * {
       box-sizing: border-box;
@@ -236,7 +250,7 @@
 
   <!-- Top Hero Section -->
   <section class="hero">
-    <h1>Ideal Vehicle</h1>
+    <h1 class="hero-title">Ideal Vehicle</h1>
     <p>From practical mid-range commuters to high-end luxury vehicles—get independent market analytics and tailored Total Cost of Ownership (TCO) guidance.</p>
   </section>
   
