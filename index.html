@@ -22,7 +22,7 @@
     }
 
     .bmw-fade {
-      animation: fadeIn 600ms ease-in-out;
+      animation: fadeIn 0.8s ease-in-out;
     }
 @keyframes slideUpFade {
   from {
@@ -36,7 +36,7 @@
 }
 
 .hero-title {
-  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  animation: slideUpFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
 }
 
     * {
@@ -94,10 +94,10 @@
       letter-spacing: -0.5px;
     }
     .hero p {
+      animation: slideUpFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
       color: var(--text-muted);
       font-size: 1.1rem;
-      max-width: 650px;
-      margin: 0 auto;
+}
     }
     .container {
       max-width: 700px;
