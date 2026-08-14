@@ -556,36 +556,139 @@
       
       let suggestions = [];
 
-      // Extended rich multi-car suggestions with clean vector/illustration style placeholders (Wikimedia Commons / Open Clip Art style references)
-      if (budget === '25,000€ - 45,000€') {
-        suggestions = [
-          { name: "Volkswagen Golf", desc: "The definitive European hatchback standard with balanced ride and exceptional resale value.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Volkswagen_Golf_VIII_1.4_eHybrid_IMG_5319.jpg/800px-Volkswagen_Golf_VIII_1.4_eHybrid_IMG_5319.jpg" },
-          { name: "Volkswagen Passat Estate", desc: "Spacious family wagon offering top-tier highway comfort and vast cargo capacity.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/VW_Passat_B8_Variant_Facelift_IMG_6261.jpg/800px-VW_Passat_B8_Variant_Facelift_IMG_6261.jpg" },
-          { name: "Volkswagen ID.3", desc: "Compact full-electric hatch with high daily efficiency and modern digital layout.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/VW_ID.3_Pro_Performance_%281X7A6855%29.jpg/800px-VW_ID.3_Pro_Performance_%281X7A6855%29.jpg" },
-          { name: "Toyota Corolla Hybrid", desc: "Legendary fuel economy paired with top-tier TÜV reliability metrics.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Toyota_Corolla_Hybrid_Geneva_2019_1Y7A5275.jpg/800px-Toyota_Corolla_Hybrid_Geneva_2019_1Y7A5275.jpg" },
-          { name: "Skoda Octavia iV", desc: "Immense practical space combined with low daily commuting costs.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Skoda_Octavia_Combi_iV_IMG_4917.jpg/800px-Skoda_Octavia_Combi_iV_IMG_4917.jpg" }
-        ];
-      } else if (budget === '45,000€ - 75,000€') {
-        suggestions = [
-          { name: "BMW 3 Series Touring", desc: "The gold standard for executive sportiness, driver engagement, and prestige.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/BMW_G21_Facelift_IMG_0126.jpg/800px-BMW_G21_Facelift_IMG_0126.jpg" },
-          { name: "Mercedes-Benz GLC", desc: "Supreme ride isolation, luxury cabin finishing, and strong residual demand.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Mercedes-Benz_X254_IMG_5694.jpg/800px-Mercedes-Benz_X254_IMG_5694.jpg" },
-          { name: "Audi Q5 & Q4 e-tron", desc: "Spacious family electric luxury featuring quattro traction and intuitive tech.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Audi_Q4_e-tron_IMG_5506.jpg/800px-Audi_Q4_e-tron_IMG_5506.jpg" },
-          { name: "BMW i4 Gran Coupé", desc: "Sleek four-door electric layout combining dynamic handling with long range.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/BMW_i4_eDrive40_IMG_5273.jpg/800px-BMW_i4_eDrive40_IMG_5273.jpg" }
-        ];
-      } else if (budget === '75,000€ - 120,000€') {
-        suggestions = [
-          { name: "Porsche Macan & Macan EV", desc: "Unmatched crossover dynamics paired with cutting-edge 800V charging architecture.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Porsche_Macan_Electric_IMG_6242.jpg/800px-Porsche_Macan_Electric_IMG_6242.jpg" },
-          { name: "Audi Q8 & Q8 e-tron", desc: "Flagship quietness, executive lounge seating, and effortless long-distance touring.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Audi_Q8_e-tron_IMG_4922.jpg/800px-Audi_Q8_e-tron_IMG_4922.jpg" },
-          { name: "BMW 5 Series & i5", desc: "The definitive business-class cruiser offering supreme comfort and advanced assistance tech.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/BMW_G60_IMG_6186.jpg/800px-BMW_G60_IMG_6186.jpg" }
-        ];
-      } else { // 120,000€+
-        suggestions = [
-          { name: "Porsche Panamera Executive", desc: "Exceptional long-distance comfort, refined hybrid/petrol powertrains and peerless prestige.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Porsche_Panamera_4_E-Hybrid_%28971%29_Genf_2018_1Y7A1637.jpg/800px-Porsche_Panamera_4_E-Hybrid_%28971%29_Genf_2018_1Y7A1637.jpg" },
-          { name: "Porsche 911 Carrera", desc: "The world's benchmark sports car with legendary performance and top-tier value retention in all versions.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Porsche_911_Carrera_S_%28992%29_IMG_0085.jpg/800px-Porsche_911_Carrera_S_%28992%29_IMG_0085.jpg" },
-          { name: "BMW 7 series & i7", desc: "The ultimate flagship sedan offering uncompromising craftmanship, advanced chauffeur technology and supreme driving dynamics." },
-          { name: "Mercedes-Benz S-Class", desc: "The pinnacle of global automotive luxury, safety innovation and executive serenity.", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Mercedes-Benz_W223_IMG_6424.jpg/800px-Mercedes-Benz_W223_IMG_6424.jpg" }
-        ];
-      }
+      // ==========================================
+// VEHICLE RECOMMENDATION ENGINE DATABASE
+// ==========================================
+const vehicleDatabase = {
+  // --- 25,000€ - 45,000€ ---
+  "25000_45000": {
+    "full_ev_hybrid": [
+      { name: "Renault 5 E-Tech", desc: "Compact full-electric hatch with high daily efficiency and modern digital layout." },
+      { name: "BYD Dolphin", desc: "Spacious tech-focused electric hatchback offering incredible value and comfort." },
+      { name: "MG 4 Electric", desc: "Agile rear-wheel drive EV featuring sharp styling and impressive range capabilities." },
+      { name: "Jeep Avenger Electric", desc: "Robust compact electric SUV built for city maneuverability and weekend getaways." },
+      { name: "Volkswagen ID.3", desc: "Balanced electric hatch providing exceptional cabin room and smooth road manners." }
+    ],
+    "phev": [
+      { name: "Renault Captur E-Tech PHEV", desc: "Versatile plug-in hybrid crossover optimized for efficient city and suburban commuting." },
+      { name: "Kia Niro PHEV", desc: "Practical eco-friendly crossover balancing fuel economy with daily cargo flexibility." },
+      { name: "Hyundai Tucson PHEV", desc: "Spacious family SUV featuring advanced plug-in efficiency and robust features." },
+      { name: "Peugeot 308 Plug-in Hybrid", desc: "Striking French design paired with a refined plug-in hybrid powertrain." },
+      { name: "SEAT Leon Sportstourer e-Hybrid", desc: "Dynamic station wagon offering great utility and plug-in electric capability." }
+    ],
+    "full_mild_hybrid": [
+      { name: "Toyota Yaris Cross Hybrid", desc: "Agile hybrid crossover delivering class-leading fuel economy and reliability." },
+      { name: "Toyota Corolla Hybrid", desc: "Legendary fuel economy paired with top-tier TÜV reliability metrics." },
+      { name: "Hyundai Kona Hybrid", desc: "Distinctive compact hybrid SUV with a comfortable, tech-rich interior." },
+      { name: "Nissan Qashqai e-POWER", desc: "Innovative hybrid drive system delivering an electric feel without plugging in." },
+      { name: "Fiat 500 / Panda Hybrid", desc: "Efficient mild-hybrid city car ideal for tight urban environments." }
+    ],
+    "petrol_diesel": [
+      { name: "Volkswagen Golf 2.0 TSI / TDI", desc: "The benchmark hatchback offering refined performance and everyday usability." },
+      { name: "Skoda Octavia Combi", desc: "Immense practical space combined with low daily commuting costs." },
+      { name: "Mazda CX-5", desc: "Premium feel, sharp handling, and a dependable naturally aspirated petrol engine." },
+      { name: "Ford Puma ST-Line", desc: "Engaging driving dynamics wrapped in a practical compact SUV body style." },
+      { name: "MINI Cooper S", desc: "Iconic kart-like handling paired with a punchy turbocharged engine." }
+    ]
+  },
+
+  // --- 45,000€ - 75,000€ ---
+  "45000_75000": {
+    "full_ev_hybrid": [
+      { name: "Tesla Model 3 Long Range", desc: "High-performance electric sedan featuring cutting-edge software and range." },
+      { name: "Volkswagen ID.4 GTX", desc: "Sporty dual-motor electric crossover with athletic handling and space." },
+      { name: "Hyundai Ioniq 5 AWD", desc: "Retro-futuristic design housing ultra-fast charging architecture and cabin comfort." },
+      { name: "Kia EV6 GT-Line", desc: "Dynamic electric crossover with striking looks and rapid charging performance." },
+      { name: "Volvo EX30 Twin Motor", desc: "Scandi-designed performance electric SUV with punchy acceleration." }
+    ],
+    "phev": [
+      { name: "Volkswagen Golf GTE", desc: "Hot-hatch performance combined with daily plug-in electric efficiency." },
+      { name: "Cupra Formentor VZ e-Hybrid", desc: "Aggressive styling and sporty plug-in hybrid dynamics for spirited drivers." },
+      { name: "BMW X1 xDrive25e", desc: "Compact luxury SAV featuring versatile all-wheel drive plug-in power." },
+      { name: "Mercedes-Benz A 250 e", desc: "Premium compact hatchback with seamless electric-only city commuting." },
+      { name: "Volvo XC40 Recharge PHEV", desc: "Safe, stylish Scandinavian luxury packed with practical plug-in performance." }
+    ],
+    "full_mild_hybrid": [
+      { name: "Toyota RAV4 Hybrid AWD", desc: "Robust family SUV offering dependable all-wheel drive fuel efficiency." },
+      { name: "Lexus NX 350h", desc: "Refined luxury hybrid combining serene quietness with low running costs." },
+      { name: "BMW 320d xDrive M Sport", desc: "The ultimate business cruiser with mild-hybrid efficiency and surefooted traction." },
+      { name: "Audi A4 40 TDI quattro", desc: "Sleek German engineering built for effortless long-distance highway cruising." },
+      { name: "Volvo XC60 B5 Mild Hybrid", desc: "Elegant mid-size luxury SUV prioritizing safety and smooth power delivery." }
+    ],
+    "petrol_diesel": [
+      { name: "BMW M240i xDrive", desc: "Compact sports coupe delivering thrilling inline-six performance and agility." },
+      { name: "Audi S3 Sportback", desc: "Potent turbocharged power mated to quattro grip for year-round fun." },
+      { name: "Volkswagen Golf R", desc: "Ultimate high-performance everyday hatch with serious track capability." },
+      { name: "Ford Mustang GT V8", desc: "Classic American muscle featuring a roaring V8 engine and rear-wheel drive." },
+      { name: "Toyota GR Supra", desc: "Pure sports car DNA engineered for razor-sharp handling and excitement." }
+    ]
+  },
+
+  // --- 75,000€ - 120,000€ ---
+  "75000_120000": {
+    "full_ev_hybrid": [
+      { name: "BMW i4 M50", desc: "High-performance electric gran coupe blending luxury with fierce acceleration." },
+      { name: "Porsche Macan Electric", desc: "Pure electric performance SUV carrying genuine Porsche driving dynamics." },
+      { name: "Tesla Model Y Performance", desc: "Lightning-fast family utility vehicle with expansive cargo and tech." },
+      { name: "Audi Q6 e-tron", desc: "Advanced premium electric SUV featuring cutting-edge lighting and comfort." },
+      { name: "Mercedes-Benz EQE", desc: "Aerodynamic executive electric sedan offering first-class cabin serenity." }
+    ],
+    "phev": [
+      { name: "BMW 530e xDrive", desc: "Executive business sedan blending plug-in efficiency with dynamic poise." },
+      { name: "Mercedes-Benz E 300 e", desc: "State-of-the-art luxury interior coupled with seamless plug-in capability." },
+      { name: "Volvo V60 T8 AWD Ultra", desc: "Rapid plug-in hybrid estate offering supreme comfort and massive utility." },
+      { name: "Range Rover Evoque P300e", desc: "Compact luxury British design with advanced plug-in hybrid tech." },
+      { name: "Porsche Cayenne E-Hybrid", desc: "High-performance luxury SUV combining sports car power with hybrid efficiency." }
+    ],
+    "full_mild_hybrid": [
+      { name: "Audi A6 55 TFSI quattro", desc: "Sophisticated executive saloon with smooth mild-hybrid V6 performance." },
+      { name: "BMW 540i xDrive", desc: "Silky smooth inline-six engine enhanced by mild-hybrid responsiveness." },
+      { name: "Mercedes-Benz GLE 450", desc: "Spacious luxury SUV delivering supreme comfort and effortless passing power." },
+      { name: "Volvo XC90 B6 AWD", desc: "Flagship 7-seater family luxury featuring advanced mild-hybrid safety tech." },
+      { name: "Lexus RX 500h F SPORT", desc: "Bold styling and high-output hybrid performance for the discerning buyer." }
+    ],
+    "petrol_diesel": [
+      { name: "BMW M340i xDrive", desc: "Thrilling sports sedan offering near-M3 performance for daily driving." },
+      { name: "Audi S5 Sportback", desc: "Sleek luxury fastback powered by a robust turbocharged engine." },
+      { name: "Porsche 718 Cayman S", desc: "Mid-engine sports car masterpiece built for ultimate driving purists." },
+      { name: "Mercedes-AMG CLE 53", desc: "Stunning luxury coupe featuring signature AMG performance and rumble." },
+      { name: "BMW X5 xDrive40i", desc: "The gold standard of luxury performance SUVs with exceptional versatility." }
+    ]
+  },
+
+  // --- 120,000€+ ---
+  "120000_plus": {
+    "full_ev_hybrid": [
+      { name: "Porsche Taycan Turbo S", desc: "Breathtaking electric supercar performance with hyper-fast 800V charging." },
+      { name: "Audi RS e-tron GT", desc: "Stunning gran turismo styling matched with ferocious electric acceleration." },
+      { name: "Tesla Model S Plaid", desc: "Mind-bending tri-motor power wrapped in a stealthy executive body." },
+      { name: "Lucid Air Grand Touring", desc: "Unmatched luxury EV range and efficiency paired with palatial space." },
+      { name: "Mercedes-AMG EQS", desc: "Ultramodern high-performance electric luxury ship with hyperscreen tech." }
+    ],
+    "phev": [
+      { name: "Porsche Panamera Turbo E-Hybrid", desc: "Exquisite executive sports sedan offering track-level hybrid capabilities." },
+      { name: "Bentley Flying Spur Hybrid", desc: "Ultra-luxury British craftsmanship paired with silent hybrid cruising." },
+      { name: "Range Rover Sport P550e", desc: "Commanding luxury performance SUV with impressive electric-only range." },
+      { name: "BMW XM", desc: "Unapologetic high-performance plug-in hybrid SAV designed to stand out." },
+      { name: "Mercedes-AMG S 63 E Performance", desc: "The pinnacle of ultra-luxury performance engineering and electrification." }
+    ],
+    "full_mild_hybrid": [
+      { name: "Mercedes-Benz S 580 4MATIC", desc: "The definitive word in flagship luxury, comfort, and serene ride quality." },
+      { name: "BMW M760e / 740d xDrive", desc: "State-of-the-art technological flagship offering sublime long-distance travel." },
+      { name: "Audi A8 60 TFSIe", desc: "Understated executive limousine packed with cutting-edge comfort features." },
+      { name: "Range Rover P530 V8", desc: "Iconic luxury and majestic road presence with effortless V8 power." },
+      { name: "Bentley Bentayga V8", desc: "Handcrafted ultra-luxury SUV offering supreme power and elegance." }
+    ],
+    "petrol_diesel": [
+      { name: "Porsche 911 Carrera GTS", desc: "The timeless benchmark for everyday sports car perfection and heritage." },
+      { name: "Aston Martin Vantage", desc: "Exotic British design powered by a ferocious twin-turbo V8 engine." },
+      { name: "Ferrari Roma", desc: "Timeless Italian elegance married to mid-front-engine supercar performance." },
+      { name: "BMW M8 Competition", desc: "High-speed luxury gran turismo built for effortless continental crossings." },
+      { name: "Mercedes-AMG SL 63", desc: "Legendary open-top roadster loaded with uncompromising AMG V8 power." }
+    ]
+  }
+};
+
 
       let html = `<p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Criteria: <strong style="color:var(--accent-gold);">${budget}</strong> &bull; <strong style="color:var(--accent-gold);">${pt}</strong></p>`;
       
