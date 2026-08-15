@@ -689,19 +689,31 @@ const vehicleDatabase = {
   }
 };
 
+function updateSuggestions() {
+  const budget = userSelections.budget; 
+  const pt = userSelections.powertrain;     
+  const container = document.getElementById('suggestions-container');
 
-      let html = `<p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Criteria: <strong style="color:var(--accent-gold);">${budget}</strong> &bull; <strong style="color:var(--accent-gold);">${pt}</strong></p>`;
-      
-      suggestions.forEach(item => {
-        html += `
-          <div style="background: #0b0c10; border: 1px solid rgba(197, 160, 89, 0.3); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-            <h4 style="color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 5px;">${item.name}</h4>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">${item.desc}</p>
-          </div>
-        `;
-      });
-      container.innerHTML = html;
-    }
+  let suggestions = vehicleDatabase[budget]?.[pt] || [];
+
+  let html = `<p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Criteria: Selected Budget & Powertrain</p>`;
+
+  if (suggestions.length === 0) {
+    html += `<p style="color: #E0E0E0; font-size: 0.85rem;">No models found for this specific combination.</p>`;
+  } else {
+    suggestions.forEach(item => {
+      html += `
+        <div style="background: #0b0c10; border: 1px solid rgba(197, 160, 89, 0.3); padding: 15px; border-radius: 8px; margin-bottom: 12px;">
+          <h4 style="color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 5px;">${item.name}</h4>
+          <p style="color: #E0E0E0; font-size: 0.85rem;">${item.desc}</p>
+        </div>
+      `;
+    });
+  }
+
+  container.innerHTML = html;
+}
+
 
     function submitInquiry(event) {
       event.preventDefault();
