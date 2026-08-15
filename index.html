@@ -311,10 +311,10 @@
     <div id="step-1" class="step-content active">
       <h2>Start your vehicle assessment: What is your target budget?</h2>
       <div class="options-grid" style="margin-top: 40px;">
-        <button class="btn-option" onclick="selectOption(this, 'budget', '25,000€ - 45,000€', 'next-1')">25,000€ - 45,000€</button>
-        <button class="btn-option" onclick="selectOption(this, 'budget', '45,000€ - 75,000€', 'next-1')">45,000€ - 75,000€</button>
-        <button class="btn-option" onclick="selectOption(this, 'budget', '75,000€ - 120,000€', 'next-1')">75,000€ - 120,000€</button>
-        <button class="btn-option" onclick="selectOption(this, 'budget', '120,000€+', 'next-1')">120,000€+</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '25000_45000', 'next-1')">25,000€ - 45,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '45000_75000', 'next-1')">45,000€ - 75,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '75000_120000', 'next-1')">75,000€ - 120,000€</button>
+        <button class="btn-option" onclick="selectOption(this, 'budget', '120000_plus', 'next-1')">120,000€+</button>
       </div>
       <div class="navigation">
         <button class="btn-nav" id="next-1" disabled onclick="nextStep(2)">Next Step</button>
@@ -325,10 +325,10 @@
     <div id="step-2" class="step-content">
       <h2>What is your preferred powertrain?</h2>
       <div class="options-grid">
-        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Full Electric (BEV)', 'next-2')">Full Electric or Hybrid</button>
-        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Plug-in Hybrid (PHEV)', 'next-2')">Plug-in Hybrid (PHEV)</button>
-        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Full / Mild Hybrid', 'next-2')">Full / Mild Hybrid</button>
-        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'Petrol / Diesel', 'next-2')">Petrol / Diesel</button>
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'full_ev_hybrid', 'next-2')">Full Electric or Hybrid</button>
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'phev', 'next-2')">Plug-in Hybrid (PHEV)</button>
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'full_mild_hybrid', 'next-2')">Full / Mild Hybrid</button>
+        <button class="btn-option" onclick="selectOption(this, 'powertrain', 'petrol_diesel', 'next-2')">Petrol / Diesel</button>
       </div>
       <div class="navigation">
         <button class="btn-nav" onclick="nextStep(1)" style="margin-right: auto; background: transparent !important;">Back</button>
