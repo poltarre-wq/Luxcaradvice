@@ -550,11 +550,13 @@
     }
 
     function updateSuggestions() {
-      const budget = userSelections.budget;
-      const pt = userSelections.powertrain;
-      const container = document.getElementById('suggestions-container');
-      
-      let suggestions = [];
+  const budget = userSelections.budget; 
+  const pt = userSelections.powertrain;     
+  const container = document.getElementById('suggestions-container');
+
+  // This correctly targets your vehicleDatabase object
+  let suggestions = vehicleDatabase[budget]?.[pt] || [];
+
 
       // ==========================================
 // VEHICLE RECOMMENDATION ENGINE DATABASE
